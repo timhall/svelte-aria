@@ -4,7 +4,7 @@ import filesize from 'rollup-plugin-filesize';
 export default [
   {
     input: 'src/index.js',
-    external: ['svelte', 'svelte/internal', 'svelte/store'],
+    external: ['svelte', 'svelte/internal', 'svelte/store', 'svelte-elements'],
     output: [
       {
         file: 'dist/svelte-aria.es.js',

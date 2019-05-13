@@ -33,5 +33,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "svelte-elements": "^0.1.0"
+  }
 }
