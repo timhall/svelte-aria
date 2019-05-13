@@ -1,0 +1,37 @@
+{
+  "name": "svelte-aria",
+  "version": "0.0.0",
+  "author": "Tim Hall <tim.hall.engr@gmail.com>",
+  "license": "MIT",
+  "description": "Accessible components for svelte",
+  "repository": "https://github.com/timhall/svelte-aria.git",
+  "main": "dist/svelte-aria.cjs.js",
+  "module": "dist/svelte-aria.es.js",
+  "svelte": "src/index.js",
+  "keywords": [
+    "svelte",
+    "aria",
+    "accessibility",
+    "a11y"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "svelte": "^3.0.0"
+  },
+  "devDependencies": {
+    "rollup": "^1.11.3",
+    "rollup-plugin-filesize": "^6.0.1",
+    "rollup-plugin-svelte": "^5.0.3",
+    "svelte": "^3.0.0"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 100
+  },
+  "files": [
+    "dist"
+  ]
+}
