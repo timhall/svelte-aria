@@ -16,7 +16,11 @@
   ],
   "scripts": {
     "build": "rollup -c",
-    "prepublishOnly": "npm run build"
+    "build:watch": "rollup -c --watch",
+    "prepublishOnly": "npm run build",
+    "example": "run-p build:watch example:*",
+    "example:build": "cd example && rollup -c -w",
+    "example:serve": "serve example/public"
   },
   "dependencies": {
     "svelte-elements": "^0.4.2"
