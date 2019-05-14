@@ -8,20 +8,24 @@
 
 <script>
   import Button from './button.svelte';
+  import { createDOMEventDispatcher, passthrough } from './utils';
 
   export let pressed;
 
-  let _pressed, attributes;
-  $: ({ pressed: _pressed, ...attributes} = $$props);
+  let attributes;
+  $: attributes = passthrough($$props, ['pressed']);
+
+  const dispatch = createDOMEventDispatcher();
 
   function onClick(event) {
-    // TODO forward event to caller
-    // TODO check for preventDefault
+    dispatch(event);
+    if (event.defaultPrevented) return;
 
-    pressed = !pressed;
+    // WORKAROUND for https://github.com/sveltejs/svelte/issues/2725
+    $$props.pressed = pressed = !pressed;
   }
 </script>
 
-<Button aria-pressed={pressed ? 'true' : 'false'} on:click={onClick} {...attributes}>
+<Button aria-pressed={pressed} on:click={onClick} {...attributes}>
   <slot />
 </Button>

@@ -12,9 +12,9 @@
   import { Aside } from 'svelte-elements';
 
   let component, attributes;
-  $: ({ this: component = Aside, ...attributes} = $$props);
+  $: ({ as = Aside, ...attributes} = $$props);
 </script>
 
-<svelte:component this={component} {...attributes} role="complementary">
+<svelte:component this={as} {...attributes} role="complementary">
   <slot />
 </svelte:component>

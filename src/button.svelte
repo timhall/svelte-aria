@@ -16,25 +16,28 @@
 
 <script>
   import { Button } from 'svelte-elements';
+  import { createDOMEventDispatcher } from './utils';
 
   const SPACE = 32;
   const ENTER = 13;
 
   let component, tabindex, role, attributes;
-  $: ({ this: component = Button, tabindex = 0, role='button', ...attributes} = $$props);
+  $: ({ as = Button, tabindex = 0, role = 'button', ...attributes} = $$props);
+
+  const dispatch = createDOMEventDispatcher();
+  let from_keypress = false;
 
   function onKeypress(event) {
-    // TODO forward event to caller
-    // TODO check for preventDefault
+    dispatch(event);
+    if (event.defaultPrevented) return;
 
     if (event.which === SPACE || event.which === ENTER) {
-      // TODO fire click event
+      event.preventDefault();
+      dispatch(new MouseEvent('click'));
     }
-
-    // TODO ensure on:click doesn't also fire
   }
 </script>
 
-<svelte:component this={component} {role} {tabindex} on:keypress={onKeypress} {...attributes}>
+<svelte:component this={as} {role} {tabindex} on:click on:keypress={onKeypress} {...attributes}>
   <slot />
 </svelte:component>

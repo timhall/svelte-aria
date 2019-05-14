@@ -22,9 +22,9 @@
   export let title;
 
   let component, attributes;
-  $: ({ this: component = Form, ...attributes} = $$props);
+  $: ({ as = Form, ...attributes} = $$props);
 </script>
 
-<svelte:component this={component} {...attributes} {title} role="form">
+<svelte:component this={as} {...attributes} {title} role="form">
   <slot />
 </svelte:component>

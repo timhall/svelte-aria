@@ -13,9 +13,9 @@
   import { Footer } from 'svelte-elements';
 
   let component, attributes;
-  $: ({ this: component = Footer, ...attributes} = $$props);
+  $: ({ as = Footer, ...attributes} = $$props);
 </script>
 
-<svelte:component this={component} {...attributes} role="contentinfo">
+<svelte:component this={as} {...attributes} role="contentinfo">
   <slot />
 </svelte:component>

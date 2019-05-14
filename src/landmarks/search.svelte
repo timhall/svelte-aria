@@ -11,9 +11,9 @@
   import { Form } from 'svelte-elements';
 
   let component, attributes;
-  $: ({ this: component = Form, ...attributes} = $$props);
+  $: ({ as = Form, ...attributes} = $$props);
 </script>
 
-<svelte:component this={component} {...attributes} role="search">
+<svelte:component this={as} {...attributes} role="search">
   <slot />
 </svelte:component>

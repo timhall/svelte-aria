@@ -13,9 +13,9 @@
   import { Main } from 'svelte-elements';
 
   let component, attributes;
-  $: ({ this: component = Main, ...attributes} = $$props);
+  $: ({ as = Main, ...attributes} = $$props);
 </script>
 
-<svelte:component this={component} {...attributes} role="main">
+<svelte:component this={as} {...attributes} role="main">
   <slot />
 </svelte:component>

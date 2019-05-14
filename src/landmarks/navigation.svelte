@@ -11,9 +11,9 @@
   import { Nav } from 'svelte-elements';
 
   let component, attributes;
-  $: ({ this: component = Nav, ...attributes} = $$props);
+  $: ({ as = Nav, ...attributes} = $$props);
 </script>
 
-<svelte:component this={component} {...attributes} role="navigation">
+<svelte:component this={as} {...attributes} role="navigation">
   <slot />
 </svelte:component>

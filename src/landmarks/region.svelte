@@ -16,9 +16,9 @@
   export let title;
 
   let component, attributes;
-  $: ({ this: component = Section, ...attributes} = $$props);
+  $: ({ as = Section, ...attributes} = $$props);
 </script>
 
-<svelte:component this={component} {...attributes} {title} role="region">
+<svelte:component this={as} {...attributes} {title} role="region">
   <slot />
 </svelte:component>

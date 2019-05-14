@@ -13,9 +13,9 @@
   import { Header } from 'svelte-elements';
 
   let component, attributes;
-  $: ({ this: component = Header, ...attributes} = $$props);
+  $: ({ as = Header, ...attributes} = $$props);
 </script>
 
-<svelte:component this={component} {...attributes} role="banner">
+<svelte:component this={as} {...attributes} role="banner">
   <slot />
 </svelte:component>

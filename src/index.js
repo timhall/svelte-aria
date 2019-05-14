@@ -1,3 +1,6 @@
+export { default as Button } from './button.svelte';
+export { default as ToggleButton } from './toggle-button.svelte';
+
 //
 // Landmark Regions
 // https://www.w3.org/TR/wai-aria-practices/#aria_landmark
